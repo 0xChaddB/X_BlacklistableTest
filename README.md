@@ -8,7 +8,7 @@ To import this test into your project:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/0xChaddB/X_VulnsChallengeTests
+   git clone https://github.com/0xChaddB/X_BlacklistableTest
    ```
 
 2. **Install Dependencies**:
@@ -21,7 +21,7 @@ To import this test into your project:
 3. **Run the Tests**:
    Navigate to the repository directory and run the test:
    ```bash
-   cd X_VulnTesting
+   cd X_BlacklistableTest
    forge test
    ```
 

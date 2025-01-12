@@ -18,7 +18,6 @@ contract Blacklistable is AccessControl {
 
     }
 
-    // Initialize the token contract
     function addBlacklist(address account) external onlyRole(BLACKLIST_MANAGER_ROLE) {
         grantRole(BLACKLISTED_ROLE, account);
     }

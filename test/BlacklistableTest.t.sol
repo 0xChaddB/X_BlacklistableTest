@@ -12,17 +12,11 @@ contract BlacklistableTest is Test {
     function setUp() public {
         // Deploy the contract and set the admin address
         blacklistable = new Blacklistable(admin);
-
-        // Impersonate the admin account
         vm.startPrank(admin);
-
         // Grant the BLACKLIST_MANAGER_ROLE to the admin
         blacklistable.grantRole(blacklistable.BLACKLIST_MANAGER_ROLE(), admin);
-
         // Add the user to the blacklist
         blacklistable.addBlacklist(user);
-
-        // Stop impersonation
         vm.stopPrank();
     }
 
@@ -31,10 +25,9 @@ contract BlacklistableTest is Test {
         assertTrue(blacklistable.isBlacklisted(user));
 
         // Simulate the user renouncing the BLACKLISTED_ROLE
-        vm.startPrank(user); // Start impersonating the `user`
+        vm.startPrank(user);
         blacklistable.renounceRole(blacklistable.BLACKLISTED_ROLE(), user);
-        vm.stopPrank(); // Stop impersonating the `user`
-
+        vm.stopPrank(); 
         // Ensure the user is no longer blacklisted
         assertFalse(blacklistable.isBlacklisted(user));
     }

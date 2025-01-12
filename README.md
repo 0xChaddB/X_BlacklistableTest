@@ -1,66 +1,51 @@
-## Foundry
+# Blacklistable Test
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository contains a Forge test for the `Blacklistable` smart contract. The test demonstrates how a blacklisted user can renounce their `BLACKLISTED_ROLE`. This test was created for the [PeterSRWeb3 Challenge](https://x.com/PeterSRWeb3/status/1878509764805554642).
 
-Foundry consists of:
+## Importing the Test
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+To import this test into your project:
 
-## Documentation
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/0xChaddB/X_VulnsChallengeTests
+   ```
 
-https://book.getfoundry.sh/
+2. **Install Dependencies**:
+   Ensure you have [Forge](https://book.getfoundry.sh/) installed. If not, install Foundry by running:
+   ```bash
+   curl -L https://foundry.paradigm.xyz | bash
+   foundryup
+   ```
 
-## Usage
+3. **Run the Tests**:
+   Navigate to the repository directory and run the test:
+   ```bash
+   cd X_VulnTesting
+   forge test
+   ```
 
-### Build
+   To run a specific test with detailed output:
+   ```bash
+   forge test --mt testBlacklistedUserCanRenounceRole -vvvvv
+   ```
 
-```shell
-$ forge build
-```
+## File Structure
 
-### Test
+- **`test/BlacklistableTest.t.sol`**: Contains the Forge test for the `Blacklistable` contract.
+- **`src/Blacklistable.sol`**: Smart contract implementation.
 
-```shell
-$ forge test
-```
+## Test Description
+The test validates the following:
 
-### Format
+1. A user is successfully added to the blacklist.
+2. The blacklisted user can renounce their `BLACKLISTED_ROLE`.
+3. After renouncing, the user is no longer blacklisted.
 
-```shell
-$ forge fmt
-```
+## Challenge Context
+This test was created as part of the [PeterSRWeb3 Challenge](https://x.com/PeterSRWeb3/status/1878509764805554642). It demonstrates a use case involving role management and blacklisting mechanics in smart contracts.
 
-### Gas Snapshots
+---
 
-```shell
-$ forge snapshot
-```
+For any questions, reach out to me on [X/Twitter](https://x.com/0xChaddB).
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```

@@ -13,8 +13,6 @@ contract BlacklistableTest is Test {
         // Deploy the contract and set the admin address
         blacklistable = new Blacklistable(admin);
         vm.startPrank(admin);
-        // Grant the BLACKLIST_MANAGER_ROLE to the admin
-        blacklistable.grantRole(blacklistable.BLACKLIST_MANAGER_ROLE(), admin);
         // Add the user to the blacklist
         blacklistable.addBlacklist(user);
         vm.stopPrank();
